@@ -1,5 +1,6 @@
 package;
 
+import flixel.FlxG;
 import flixel.FlxState;
 import flixel.FlxSprite;
 import flixel.FlxG;
@@ -12,8 +13,9 @@ import Input;
 class PlayState extends FlxState
 {
     var text : flixel.text.FlxText;
-    var xp : Int = 100;
-    var yp : Int = 100;
+    var xp : Float = 10.0;
+    var yp : Float = 10.0;
+    var radius : Int = 10;
     var speed : Float = 40.0;
     var movement : Int = 50;
     var sprite : flixel.FlxSprite;
@@ -78,6 +80,5 @@ class PlayState extends FlxState
         this.sprite.y = this.yp * this.speed * elapsed;
 
         trace(FlxObject.updateTouchingFlags(sprite,box));
-
     }
 }
