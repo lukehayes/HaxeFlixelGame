@@ -48,7 +48,6 @@ class Input
 
         if(FlxG.keys.justPressed.S)
         {
-            trace("Going down");
             return true;
         }else 
         {
