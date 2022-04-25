@@ -1,12 +1,14 @@
 package;
 
+import flixel.FlxG;
 import flixel.FlxState;
 
 class PlayState extends FlxState
 {
     var text : flixel.text.FlxText;
-    var xp : Int = 100;
-    var yp : Int = 100;
+    var xp : Float = 10.0;
+    var yp : Float = 10.0;
+    var radius : Int = 10;
     var speed : Float = 40.0;
 
     override public function create()
@@ -21,6 +23,8 @@ class PlayState extends FlxState
     {
         super.update(elapsed);
         this.xp += 1;
-        this.text.x = this.xp * this.speed * elapsed;
+        this.text.x = (Math.cos(this.xp) * this.radius) * this.speed * elapsed;
+        this.text.y = (Math.sin(this.xp) * this.radius) * this.speed * elapsed;
+        trace(FlxG.height);
     }
 }
