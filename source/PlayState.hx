@@ -34,7 +34,7 @@ class PlayState extends FlxState
         this.particle.makeGraphic(10,10, flixel.util.FlxColor.YELLOW);
 
         this.emitter = new FlxEmitter(200,400);
-        this.emitter.makeParticles(1,1, flixel.util.FlxColor.RED,1000);
+        this.emitter.makeParticles(1,1, flixel.util.FlxColor.RED,30);
         //this.emitter.loadParticles(this.particle);
         add(this.emitter);
 
