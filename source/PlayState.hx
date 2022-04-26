@@ -3,8 +3,10 @@ package;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.FlxSprite;
+import flixel.FlxSprite;
 import flixel.FlxG;
 import flixel.FlxObject;
+import flixel.FlxCamera;
 import flixel.tweens.FlxTween;
 import flixel.effects.particles.FlxParticle;
 import flixel.effects.particles.FlxEmitter;
@@ -46,6 +48,12 @@ class PlayState extends FlxState
         this.sprite = new FlxSprite(300,300);
         this.sprite.makeGraphic(100,100, flixel.util.FlxColor.BLUE);
         add(this.sprite);
+
+        //this.camera = new FlxCamera(0,0,400,400);
+        //this.camera.target = this.sprite;
+        //this.camera.style = SCREEN_BY_SCREEN;
+        //FlxG.cameras.reset(this.camera);
+        FlxG.camera.follow(sprite, TOPDOWN, 5);
     }
 
     override public function update(elapsed:Float)
@@ -79,6 +87,6 @@ class PlayState extends FlxState
         this.sprite.x = this.xp * this.speed * elapsed;
         this.sprite.y = this.yp * this.speed * elapsed;
 
-        trace(FlxObject.updateTouchingFlags(sprite,box));
+        // trace(FlxObject.updateTouchingFlags(sprite,box));
     }
 }
