@@ -2,91 +2,31 @@ package;
 
 import flixel.FlxG;
 import flixel.FlxState;
-import flixel.FlxSprite;
-import flixel.FlxSprite;
-import flixel.FlxG;
-import flixel.FlxObject;
-import flixel.FlxCamera;
-import flixel.tweens.FlxTween;
-import flixel.effects.particles.FlxParticle;
-import flixel.effects.particles.FlxEmitter;
-import Input;
+import Player;
 
 class PlayState extends FlxState
 {
     var text : flixel.text.FlxText;
-    var xp : Float = 10.0;
-    var yp : Float = 10.0;
-    var radius : Int = 10;
-    var speed : Float = 40.0;
-    var movement : Int = 50;
-    var sprite : flixel.FlxSprite;
-    var box : flixel.FlxSprite;
-    var particle : FlxParticle;
-    var emitter :  FlxEmitter;
+
+    var player : Player;
 
     override public function create()
     {
         super.create();
-        //this.text = new flixel.text.FlxText(0, 0, 0, "Initalizing...", 64);
-        //this.text.screenCenter();
-        //add(this.text);
 
-        this.particle = new FlxParticle();
-        this.particle.makeGraphic(10,10, flixel.util.FlxColor.YELLOW);
+        this.text = new flixel.text.FlxText(0, 0, 0, "Initalizing...", 64);
+        this.text.screenCenter();
+        add(this.text);
 
-        this.emitter = new FlxEmitter(200,400);
-        this.emitter.makeParticles(1,1, flixel.util.FlxColor.RED,30);
-        //this.emitter.loadParticles(this.particle);
-        add(this.emitter);
+        this.player = new Player();
+        add(this.player);
 
-        this.box = new FlxSprite(200,100);
-        this.box.makeGraphic(100,100, flixel.util.FlxColor.CYAN);
-        add(this.box);
-
-        //this.sprite = new FlxSprite(300,300);
-        this.sprite = new FlxSprite(300,300);
-        this.sprite.makeGraphic(100,100, flixel.util.FlxColor.BLUE);
-        add(this.sprite);
-
-        //this.camera = new FlxCamera(0,0,400,400);
-        //this.camera.target = this.sprite;
-        //this.camera.style = SCREEN_BY_SCREEN;
-        //FlxG.cameras.reset(this.camera);
-        FlxG.camera.follow(sprite, TOPDOWN, 5);
     }
 
     override public function update(elapsed:Float)
     {
         super.update(elapsed);
+        player.update(elapsed);
 
-        if(Input.RIGHT())
-        {
-            this.emitter.start();
-            this.xp += this.movement;
-        }
-
-        if(Input.LEFT())
-        {
-            this.xp -= this.movement;
-            this.emitter.start();
-        }
-
-        if(Input.UP())
-        {
-            this.yp -= this.movement;
-            this.emitter.start();
-        }
-
-        if(Input.DOWN())
-        {
-            this.yp += this.movement;
-            this.emitter.start();
-        }
-
-        this.sprite.x = this.xp * this.speed * elapsed;
-        this.sprite.y = this.yp * this.speed * elapsed;
-
-        // trace(FlxObject.updateTouchingFlags(sprite,box));
     }
 }
