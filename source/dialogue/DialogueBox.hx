@@ -17,5 +17,7 @@ class DialogueBox extends FlxSprite
         this.text = new FlxText(0,50, FlxG.width, text, 16);
         this.text.autoSize = false;
         this.text.alignment = flixel.text.FlxTextAlign.CENTER;
+
+        this.stamp(this.text);
     }
 }
