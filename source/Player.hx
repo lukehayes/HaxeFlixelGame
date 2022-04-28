@@ -16,10 +16,12 @@ class Player extends FlxSprite
     public function new(x:Float = 100, y:Float = 100)
     {
         super(x,y);
-
         makeGraphic(16,16, FlxColor.BLUE);
+    }
 
-        //FlxG.camera.follow(this, TOPDOWN, 5);
+    public function setCameraFollow()
+    {
+        FlxG.camera.follow(this, TOPDOWN, 5);
     }
 
     override public function update(elapsed:Float)
