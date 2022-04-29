@@ -9,9 +9,9 @@ import Input;
 // All player functionality lives inside here.
 class Player extends FlxSprite
 {
-    var speed  : Float = 30.0;
-    var xp     : Float = 10.0;
-    var yp     : Float = 10.0;
+    static inline var SPEED : Float = 30.0;
+    var xp                  : Float = 10.0;
+    var yp                  : Float = 10.0;
 
     public function new(x:Float = 100, y:Float = 100)
     {
