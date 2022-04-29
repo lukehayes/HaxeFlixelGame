@@ -6,8 +6,7 @@ import Player;
 
 class PlayState extends FlxState
 {
-    var text : flixel.text.FlxText;
-
+    var text   : flixel.text.FlxText;
     var player : Player;
 
     override public function create()
