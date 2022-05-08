@@ -17,12 +17,12 @@ class Tilemap
 
     public function new(jsonFile : String, tilesetImage:String, tileSize : Int = 16)
     {
-        this.mapData     = Json.parse(Assets.getText('assets/data/${jsonFile}'));
+        this.mapData    = Json.parse(Assets.getText('assets/data/${jsonFile}'));
         this.background = new FlxTilemap();
         this.walls      = new FlxTilemap();
 
-        background.loadMapFromArray(mapData.layers[0].data, mapData.width, mapData.height, tilesetImage, tileSize,tileSize, null, 1);
-        walls.loadMapFromArray(mapData.layers[1].data, mapData.width, mapData.height, tilesetImage, tileSize,tileSize, null, 1);
+        background.loadMapFromArray(mapData.layers[0].data, mapData.width, mapData.height, 'assets/images/${tilesetImage}', tileSize,tileSize, null, 1);
+        walls.loadMapFromArray(mapData.layers[1].data, mapData.width, mapData.height, 'assets/images/${tilesetImage}', tileSize,tileSize, null, 1);
     }
 
 }
