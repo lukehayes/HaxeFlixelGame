@@ -10,18 +10,19 @@ import flixel.tile.FlxTilemap;
  */
 class Tilemap
 {
-    public var mapData    :Dynamic;
-    public var background :FlxTilemap;
-    public var walls      :FlxTilemap;
+    public  var mapData    :Dynamic;
+    public  var background :FlxTilemap;
+    public  var walls      :FlxTilemap;
+    private var tileSize   :Int;
 
-    public function new(jsonFile : String, tilesetImage:String)
+    public function new(jsonFile : String, tilesetImage:String, tileSize : Int = 16)
     {
         this.mapData     = Json.parse(Assets.getText('assets/data/${jsonFile}'));
         this.background = new FlxTilemap();
         this.walls      = new FlxTilemap();
 
-        background.loadMapFromArray(mapData.layers[0].data, mapData.width, mapData.height, tilesetImage, 16,16, null, 1);
-        walls.loadMapFromArray(mapData.layers[1].data, mapData.width, mapData.height, tilesetImage, 16,16, null, 1);
+        background.loadMapFromArray(mapData.layers[0].data, mapData.width, mapData.height, tilesetImage, tileSize,tileSize, null, 1);
+        walls.loadMapFromArray(mapData.layers[1].data, mapData.width, mapData.height, tilesetImage, tileSize,tileSize, null, 1);
     }
 
 }
