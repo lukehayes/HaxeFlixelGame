@@ -49,6 +49,9 @@ class PlayState extends FlxState
 
         // Basic collision check for player on walls!
         FlxG.collide(this.player, this.map.walls);
+        FlxG.overlap(this.player, this.coins, (player: Player, coin: Coin) -> {
+            coin.kill();
+        });
 
     }
 }
