@@ -26,6 +26,7 @@ class PlayState extends FlxState
         add(this.map.walls);
 
         this.player = new Player();
+        this.player.setCameraFollow();
         add(this.player);
 
     }
