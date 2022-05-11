@@ -24,6 +24,20 @@ class Tilemap
 
         background.loadMapFromArray(mapData.layers[0].data, mapData.width, mapData.height, 'assets/images/${tilesetImage}', tileSize,tileSize, null, 1);
         walls.loadMapFromArray(mapData.layers[1].data, mapData.width, mapData.height, 'assets/images/${tilesetImage}', tileSize,tileSize, null, 1);
+
+    public function placeEntities()
+    {
+        var entities = this.mapData.layers[2];
+
+        //trace(entities.objects[0]);
+
+        //for(object in entities.objects)
+        //{
+            //trace(object);
+        //}
+
+    }
+
     public function getPlayerEntityPosition() : FlxVector
     {
         var playerEntity = this.mapData.layers[2].objects[0];
