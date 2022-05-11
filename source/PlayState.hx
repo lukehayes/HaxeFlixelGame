@@ -27,6 +27,10 @@ class PlayState extends FlxState
 
         this.player = new Player();
         this.player.setCameraFollow();
+        this.player.setPosition(
+                this.map.getPlayerEntityPosition().x,
+                this.map.getPlayerEntityPosition().y
+                );
         add(this.player);
 
     }
