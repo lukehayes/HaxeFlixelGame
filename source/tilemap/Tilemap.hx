@@ -4,7 +4,7 @@ import sys.io.File;
 import haxe.Json;
 import openfl.utils.Assets;
 import flixel.tile.FlxTilemap;
-import flixel.math.FlxVector;
+import flixel.math.FlxPoint;
 
 /**
   Load and parse a Tiled tilemap from a JSON file.
@@ -39,10 +39,10 @@ class Tilemap
 
     }
 
-    public function getPlayerEntityPosition() : FlxVector
+    public function getPlayerEntityPosition() : FlxPoint
     {
         var playerEntity = this.mapData.layers[2].objects[0];
-        return new FlxVector(playerEntity.x, playerEntity.y);
+        return new FlxPoint(playerEntity.x, playerEntity.y);
     }
 
 }
