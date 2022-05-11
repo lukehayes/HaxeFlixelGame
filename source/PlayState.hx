@@ -19,18 +19,19 @@ class PlayState extends FlxState
         this.text.screenCenter();
         add(this.text);
 
-        this.map = new Tilemap("TestTilemap.json", "TileImage.png");
+        this.map = new Tilemap("Tilemap.json", "TileImage.png");
         this.map.background.screenCenter();
         this.map.walls.screenCenter();
         add(this.map.background);
         add(this.map.walls);
+        add(this.map.pickups);
 
         this.player = new Player();
         this.player.setCameraFollow();
-        this.player.setPosition(
-                this.map.getPlayerEntityPosition().x,
-                this.map.getPlayerEntityPosition().y
-                );
+        //this.player.setPosition(
+                //this.map.getPlayerEntityPosition().x,
+                //this.map.getPlayerEntityPosition().y
+                //);
         add(this.player);
 
     }
