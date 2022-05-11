@@ -34,6 +34,7 @@ class PlayState extends FlxState
 
         this.player = new Player();
         this.player.setCameraFollow();
+        player.alive = false;
         this.player.setPosition(
                 this.map.getPlayerEntityPosition().x,
                 this.map.getPlayerEntityPosition().y
@@ -49,9 +50,15 @@ class PlayState extends FlxState
 
         // Basic collision check for player on walls!
         FlxG.collide(this.player, this.map.walls);
-        FlxG.overlap(this.player, this.coins, (player: Player, coin: Coin) -> {
-            coin.kill();
-        });
+        FlxG.overlap(this.player, this.coins, this.playerTouchCoin);
+    }
 
+    // Callback for when a player collides with a coin
+    public function playerTouchCoin(player: Player, coin: Coin)
+    {
+        if(player.alive && player.exists && coin.alive && coin.exists)
+        {
+            coin.kill();
+        }
     }
 }
