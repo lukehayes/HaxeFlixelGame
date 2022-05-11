@@ -17,7 +17,7 @@ class Player extends FlxSprite
     public function new(x:Float = 100, y:Float = 100)
     {
         super(x,y);
-        makeGraphic(16,16, FlxColor.BLUE);
+        makeGraphic(8,8, FlxColor.BLUE);
         drag.x = drag.y = 600;
     }
 
