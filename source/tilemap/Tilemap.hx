@@ -29,23 +29,18 @@ class Tilemap
         pickups.loadMapFromArray(mapData.layers[2].data, mapData.width, mapData.height, 'assets/images/${tilesetImage}', tileSize,tileSize, null, 1);
     }
 
-    public function placeEntities()
+    public function doorCoinPosition() : FlxPoint
     {
-        var entities = this.mapData.layers[2];
-
-        //trace(entities.objects[0]);
-
-        //for(object in entities.objects)
-        //{
-            //trace(object);
-        //}
-
+        var doorCoin = this.mapData.layers[3].objects[1];
+        return new FlxPoint(doorCoin.x, doorCoin.y);
     }
 
     public function getPlayerEntityPosition() : FlxPoint
     {
-        var playerEntity = this.mapData.layers[2].objects[0];
-        return new FlxPoint(playerEntity.x, playerEntity.y);
+        var playerEntity = this.mapData.layers[3].objects[0];
+        //trace(playerEntity);
+        trace(Type.getClass(playerEntity));
+        return new FlxPoint(0,0);
     }
 
 }

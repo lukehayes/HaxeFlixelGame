@@ -2,6 +2,7 @@ package;
 
 import flixel.FlxG;
 import flixel.FlxState;
+import flixel.group.FlxGroup;
 import Player;
 import tilemap.Tilemap;
 
@@ -10,6 +11,7 @@ class PlayState extends FlxState
     var text   : flixel.text.FlxText;
     var player : Player;
     var map    : Tilemap;
+    var coins  : FlxTypedGroup<Coin>;
 
     override public function create()
     {
@@ -26,12 +28,16 @@ class PlayState extends FlxState
         add(this.map.walls);
         add(this.map.pickups);
 
+        this.coins = new FlxTypedGroup<Coin>();
+        add(this.coins);
+        coins.add(new Coin(this.map.doorCoinPosition().x + 4, this.map.doorCoinPosition().y + 4));
+
         this.player = new Player();
         this.player.setCameraFollow();
-        //this.player.setPosition(
-                //this.map.getPlayerEntityPosition().x,
-                //this.map.getPlayerEntityPosition().y
-                //);
+        this.player.setPosition(
+                this.map.getPlayerEntityPosition().x,
+                this.map.getPlayerEntityPosition().y
+                );
         add(this.player);
 
     }
