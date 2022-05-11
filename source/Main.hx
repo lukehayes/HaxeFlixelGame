@@ -11,7 +11,7 @@ class Main extends Sprite
     {
         super();
         //this.game = new FlxGame(0, 0, PlayState, SkipSplash = true);
-        this.game = new FlxGame(0,0, PlayState, 1, 60, 60, true);
+        this.game = new FlxGame(320, 240, PlayState, 1, 60, 60, true);
         addChild(game);
     }
 }
