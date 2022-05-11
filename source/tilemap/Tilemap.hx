@@ -4,6 +4,7 @@ import sys.io.File;
 import haxe.Json;
 import openfl.utils.Assets;
 import flixel.tile.FlxTilemap;
+import flixel.math.FlxVector;
 
 /**
   Load and parse a Tiled tilemap from a JSON file.
@@ -23,6 +24,10 @@ class Tilemap
 
         background.loadMapFromArray(mapData.layers[0].data, mapData.width, mapData.height, 'assets/images/${tilesetImage}', tileSize,tileSize, null, 1);
         walls.loadMapFromArray(mapData.layers[1].data, mapData.width, mapData.height, 'assets/images/${tilesetImage}', tileSize,tileSize, null, 1);
+    public function getPlayerEntityPosition() : FlxVector
+    {
+        var playerEntity = this.mapData.layers[2].objects[0];
+        return new FlxVector(playerEntity.x, playerEntity.y);
     }
 
 }
