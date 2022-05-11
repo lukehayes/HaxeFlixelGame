@@ -24,6 +24,7 @@ class Tilemap
 
         background.loadMapFromArray(mapData.layers[0].data, mapData.width, mapData.height, 'assets/images/${tilesetImage}', tileSize,tileSize, null, 1);
         walls.loadMapFromArray(mapData.layers[1].data, mapData.width, mapData.height, 'assets/images/${tilesetImage}', tileSize,tileSize, null, 1);
+    }
 
     public function placeEntities()
     {
