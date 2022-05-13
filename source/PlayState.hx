@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxState;
 import flixel.group.FlxGroup;
 import Player;
+import HUD;
 import tilemap.Tilemap;
 
 class PlayState extends FlxState
@@ -12,9 +13,14 @@ class PlayState extends FlxState
     var player : Player;
     var map    : Tilemap;
     var coins  : FlxTypedGroup<Coin>;
+    var hud    : HUD;
 
     override public function create()
     {
+
+        this.hud = new HUD();
+        add(this.hud);
+
         super.create();
 
         this.text = new flixel.text.FlxText(0, 0, 0, "Initalizing...", 64);
@@ -58,6 +64,7 @@ class PlayState extends FlxState
         if(player.alive && player.exists && coin.alive && coin.exists)
         {
             coin.kill();
+            hud.updateHud();
         }
     }
 }
